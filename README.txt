@@ -1,15 +1,26 @@
-Each experiment is run in a folder with all necessary files to run the diablo simulations. An example is the "Example_CFD_Folder_For_QLAZ"
+# Master's Thesis: A Novel Self-Sustaining Process in Plane
+Couette Flow
 
-The engine of all different simulations in my thesis are based on the basic Channel.F file that simulates GQL.
-The different experiments explained in the thesis are set up by adding part to the basic Channel.F file, as seen in the different Channel_X.F files in the CHANNELF_Files folder.
+This repository contains my Master's Thesis as part of my Advanced Computational Methods for Aeronautics MSc, along with the simulation environments, source code, and post-processing scripts used for the CFD experiments in my Master's thesis. The simulations are built around the **Diablo** solver to simulate Generalised Quasilinear (GQL) approximations.
 
-The outputs of the basic simualtions are: 
-- trace.d: file containing the time history of some scalars, including time step, bulk velocity, friction Reynolds number, and mean pressure gradient.
-- mean.h5: file containing 1D wall-normal profiles of time-averaged physical flow statistics. 
-- out000n.h5: files containing full 3D instantaneous flow field snapshots. 
-- spectra.h5: file containing the full spectral turbulent kinetic energy (TKE) budget. 
-- Euvw_ypm50_all/_bcore/_tcore.d: file containing the time history of specific mode energies calculated within a volume near the centre of the channel or on top/under it.
+## 📂 Repository Structure
 
-All code used for post-processing is found in the DataAnalysis folder, which includes a Base_codes folder, 
-with basic code to extract paramters from the simulation outputs,
-and an Advanced folder, with code to extract more specific features
+*   **`Report/`**: Contains the Master Thesis report.
+    *   **`Figures/`**: Contains all the Figures in the thesis 
+*   **`Example_CFD_Folder_For_QLAZ/`**: A working example directory demonstrating how an individual simulation experiment is set up and executed.
+*   **`CHANNELF_Files/`**: Contains the modified Channel.F files corresponding to different experimental setups discussed in the thesis.
+*   **`DataAnalysis/`**: Contains all the code used for post-processing the simulation data.
+    *   **`Base_codes/`**: Fundamental scripts to extract general parameters and basic metrics from the simulation outputs.
+    *   **`Advanced/`**: Specialised scripts designed to extract specific features from the flow fields.
+
+## 📊 Simulation Outputs
+
+When a basic simulation is successfully run, the engine generates several data files in both `.d` (data) and `.h5` (HDF5) formats:
+
+| Output File | Description |
+| :--- | :--- |
+| `trace.d` | Time history of key scalar parameters, including the time step, bulk velocity, friction Reynolds number, and mean pressure gradient. |
+| `mean.h5` | 1D wall-normal profiles of time-averaged physical flow statistics. |
+| `out000n.h5` | Full 3D instantaneous flow field snapshots (where *n* denotes the snapshot sequence). |
+| `spectra.h5` | The full spectral turbulent kinetic energy budget. |
+| `Euvw_ypm50_*.d` | Time history of specific mode energies calculated within a volume near the centre of the channel (`_all`), or bounding it on top/bottom (`_tcore` / `_bcore`). |
