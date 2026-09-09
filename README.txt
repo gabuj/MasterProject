@@ -15,8 +15,6 @@ This repository contains my Master's Thesis as part of my Advanced Computational
 
 ## 📊 Simulation Outputs
 
-When a basic simulation is successfully run, the engine generates several data files in both `.d` (data) and `.h5` (HDF5) formats:
-
 | Output File | Description |
 | :--- | :--- |
 | `trace.d` | Time history of key scalar parameters, including the time step, bulk velocity, friction Reynolds number, and mean pressure gradient. |
